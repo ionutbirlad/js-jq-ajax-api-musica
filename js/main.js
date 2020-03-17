@@ -12,8 +12,12 @@ $(document).ready(function() {
     if (genereSelezionato == "") {
       $(".card").show();
     } else {
+      $(".card").hide();
       $(".card").each(function () {
-        
+        var genereCard = $(this).data("genere").toLowerCase();
+        if (genereSelezionato == genereCard) {
+          $(this).show();
+        }
       })
     }
 
@@ -35,7 +39,8 @@ $(document).ready(function() {
           image: albums[i].poster,
           titolo: albums[i].title,
           author: albums[i].author,
-          year: albums[i].year
+          year: albums[i].year,
+          genere: albums[i].genre
         };
       // console.log(album);
       var templateCompiled = template(album);
