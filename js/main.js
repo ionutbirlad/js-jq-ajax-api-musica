@@ -1,12 +1,8 @@
 $(document).ready(function() {
 
 
-  // var source = $("card-template").html();
-  // var template = Handlebars.compile(source);
-  //
-  //
-  // var templateCompiled = template(myObject);
-  // $(".main.active").append(templateCompiled);
+  var source = $("#card-template").html();
+  var template = Handlebars.compile(source);
 
 
   $.ajax({
@@ -18,12 +14,14 @@ $(document).ready(function() {
       // console.log(albums);
       for (var i = 0; i < albums.length; i++) {
         var album = {
-          image: "",
-          titolo: "",
-          author: "",
-          year: ""
+          image: albums[i].poster,
+          titolo: albums[i].title,
+          author: albums[i].author,
+          year: albums[i].year
         };
-
+      // console.log(album);
+      var templateCompiled = template(album);
+      $(".cards").append(templateCompiled);
 
       }
     },
