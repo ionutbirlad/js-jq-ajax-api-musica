@@ -1,10 +1,28 @@
 $(document).ready(function() {
 
-
+// HANDLEBARS
   var source = $("#card-template").html();
   var template = Handlebars.compile(source);
+// HANDLEBARS
 
 
+  $("#selezione-genere").change(function () {
+    var genereSelezionato = $("#selezione-genere").val().toLowerCase();
+    // console.log(genereSelezionato);
+    if (genereSelezionato == "") {
+      $(".card").show();
+    } else {
+      $(".card").each(function () {
+        
+      })
+    }
+
+
+  });
+
+
+
+// Chiamata AJAX
   $.ajax({
     url: "https://flynn.boolean.careers/exercises/api/array/music",
     method: "GET",
